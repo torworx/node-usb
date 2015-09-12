@@ -265,15 +265,15 @@ void initConstants(Handle<Object> target){
 
 	// libusb_speed
 	/** The OS doesn't report or know the device speed. */
-    NODE_DEFINE_CONSTANT(target, LIBUSB_SPEED_UNKNOWN);
+    NODE_DEFINE_CONSTANT(target, LIBUSB_SPEED_UNKNOWN); // 0
     /** The device is operating at low speed (1.5MBit/s). */
-    NODE_DEFINE_CONSTANT(target, LIBUSB_SPEED_LOW);
+    NODE_DEFINE_CONSTANT(target, LIBUSB_SPEED_LOW); // 1
     /** The device is operating at full speed (12MBit/s). */
-    NODE_DEFINE_CONSTANT(target, LIBUSB_SPEED_FULL);
+    NODE_DEFINE_CONSTANT(target, LIBUSB_SPEED_FULL); // 2
     /** The device is operating at high speed (480MBit/s). */
-    NODE_DEFINE_CONSTANT(target, LIBUSB_SPEED_HIGH);
+    NODE_DEFINE_CONSTANT(target, LIBUSB_SPEED_HIGH); // 3
     /** The device is operating at super speed (5000MBit/s). */
-    NODE_DEFINE_CONSTANT(target, LIBUSB_SPEED_SUPER);
+    NODE_DEFINE_CONSTANT(target, LIBUSB_SPEED_SUPER); // 4
 }
 
 Local<Value> libusbException(int errorno) {

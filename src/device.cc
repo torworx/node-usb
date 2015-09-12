@@ -190,6 +190,12 @@ NAN_METHOD(Device_Close) {
 	NanReturnValue(NanUndefined());
 }
 
+NAN_METHOD(Device_GetSpeed) {
+	ENTER_METHOD(Device, 0);
+	int r = libusb_get_device_speed(self->device);
+	NanReturnValue(NanNew<Integer>(r));
+}
+
 struct Req{
 	uv_work_t req;
 	Device* device;
@@ -345,6 +351,8 @@ void Device::Init(Handle<Object> target){
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__isKernelDriverActive", IsKernelDriverActive);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__detachKernelDriver", DetachKernelDriver);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__attachKernelDriver", AttachKernelDriver);
+
+	NODE_SET_PROTOTYPE_METHOD(tpl, "__getSpeed", Device_GetSpeed);
 
 	NanAssignPersistent(device_constructor, tpl);
 	target->Set(NanNew("Device"), tpl->GetFunction());

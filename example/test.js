@@ -2,5 +2,6 @@
 
 var usb = require('../');
 
-console.log(usb.LIBUSB_REQUEST_GET_INTERFACE);
-console.log(usb.LIBUSB_SPEED_SUPER);
+var device = usb.findByIds(0x05ac, 0x0262);
+
+console.log(device.speed);

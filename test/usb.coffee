@@ -62,6 +62,9 @@ describe 'Device', ->
 			assert.equal(s, 'Nonolith Labs')
 			done()
 
+	it 'gets speed', ->
+		assert.ok(device.speed)
+
 	describe 'control transfer', ->
 		b = Buffer([0x30...0x40])
 		it 'should OUT transfer when the IN bit is not set', (done) ->
