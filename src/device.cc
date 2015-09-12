@@ -287,7 +287,7 @@ NAN_METHOD(Device_ClaimInterface) {
 	NanReturnValue(NanUndefined());
 }
 
-NAN_METHOD(Device_SetAutoAttachKernelDrive) {
+NAN_METHOD(Device_SetAutoDetachKernelDrive) {
 	ENTER_METHOD(Device, 1);
 	// should check ?
 //	CHECK_OPEN();
@@ -355,7 +355,7 @@ void Device::Init(Handle<Object> target){
 	NODE_SET_PROTOTYPE_METHOD(tpl, "reset", Device_Reset::begin);
 
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__getSpeed", Device_GetSpeed);
-    NODE_SET_PROTOTYPE_METHOD(tpl, "__setAutoAttachKernelDrive", Device_SetAutoAttachKernelDrive);
+    NODE_SET_PROTOTYPE_METHOD(tpl, "__setAutoDetachKernelDrive", Device_SetAutoDetachKernelDrive);
 
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__claimInterface", Device_ClaimInterface);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__releaseInterface", Device_ReleaseInterface::begin);
