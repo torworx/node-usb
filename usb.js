@@ -147,6 +147,7 @@ usb.Device.prototype.disableAutoAttachKernelDrive = function () {
 };
 
 /**
+ * setAutoAttachKernelDrive
  *
  * @param enable
  * @returns {Boolean} true for success, false means not support.

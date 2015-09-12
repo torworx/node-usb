@@ -120,6 +120,14 @@ usb.LIBUSB_SPEED_SUPER // 4
 
 
 
+### .setAutoAttachKernelDrive(enable)
+
+Enable/disable libusb's automatic kernel driver detachment.
+
+The `enable` parameter is boolean.
+
+Returns `true` for success. `false` for unsupported.
+
 ### .open()
 
 Open the device. All methods below require the device to be open before use.
@@ -314,9 +322,11 @@ Emitted when the stream has been stopped and all pending requests have been comp
 ## USB Detection
 
 ### usb.on('attach', function(device) { ... });
+
 Attaches a callback to plugging in a `device`.
 
 ### usb.on('detach', function(device) { ... });
+
 Attaches a callback to unplugging a `device`.
 
 # Development and testing
