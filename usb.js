@@ -138,11 +138,11 @@ usb.Device.prototype.getStringDescriptor = function (desc_index, callback) {
   );
 }
 
-usb.Device.prototype.enableAutoDetachKernelDrive = function () {
+usb.Device.prototype.enableAutoDetachKernelDriver = function () {
   return this.setAutoDetachKernelDriver(true);
 };
 
-usb.Device.prototype.disableAutoDetachKernelDrive = function () {
+usb.Device.prototype.disableAutoDetachKernelDriver = function () {
   return this.setAutoDetachKernelDriver(false);
 };
 
