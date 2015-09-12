@@ -311,7 +311,13 @@ Emitted when the stream encounters an error.
 
 Emitted when the stream has been stopped and all pending requests have been completed.
 
+## USB Detection
 
+### usb.on('attach', function(device) { ... });
+Attaches a callback to plugging in a `device`.
+
+### usb.on('detach', function(device) { ... });
+Attaches a callback to unplugging a `device`.
 
 # Development and testing
 
