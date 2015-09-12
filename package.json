@@ -35,7 +35,7 @@
   },
   "scripts": {
     "install": "node-pre-gyp install --fallback-to-build",
-    "test": "mocha --compilers coffee:coffee-script --grep Module",
+    "test": "mocha --compilers coffee:coffee-script/register --grep Module",
     "full-test": "mocha --compilers coffee:coffee-script",
     "valgrind": "coffee -c test/usb.coffee; valgrind --leak-check=full --show-possibly-lost=no node --expose-gc --trace-gc node_modules/mocha/bin/_mocha -R spec"
   },
@@ -47,15 +47,15 @@
   },
   "dependencies": {
     "node-pre-gyp": "git+https://github.com/mapbox/node-pre-gyp.git#c88d6a04",
-    "nan": "^1.6.0"
+    "nan": "^1.9.0"
   },
   "bundledDependencies": [
     "node-pre-gyp"
   ],
   "devDependencies": {
-    "coffee-script": "~1.6.2",
-    "mocha": "~1.8.2",
-    "aws-sdk": "~2.0.0-rc.15"
+    "coffee-script": "~1.10.0",
+    "mocha": "~2.3.2",
+    "aws-sdk": "~2.2.0"
   },
   "license": "MIT"
 }
