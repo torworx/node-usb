@@ -287,6 +287,16 @@ NAN_METHOD(Device_ClaimInterface) {
 	NanReturnValue(NanUndefined());
 }
 
+NAN_METHOD(Device_SetAutoAttachKernelDrive) {
+	ENTER_METHOD(Device, 1);
+	// should check ?
+//	CHECK_OPEN();
+	int enable;
+	INT_ARG(enable, 0);
+	int r = libusb_set_auto_detach_kernel_driver(self->device_handle, enable);
+	NanReturnValue(NanNew<Boolean>(r == LIBUSB_SUCCESS));
+}
+
 struct Device_ReleaseInterface: Req{
 	int interface;
 
@@ -344,15 +354,17 @@ void Device::Init(Handle<Object> target){
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__close", Device_Close);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "reset", Device_Reset::begin);
 
+	NODE_SET_PROTOTYPE_METHOD(tpl, "__getSpeed", Device_GetSpeed);
+    NODE_SET_PROTOTYPE_METHOD(tpl, "__setAutoAttachKernelDrive", Device_SetAutoAttachKernelDrive);
+
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__claimInterface", Device_ClaimInterface);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__releaseInterface", Device_ReleaseInterface::begin);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__setInterface", Device_SetInterface::begin);
 
+
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__isKernelDriverActive", IsKernelDriverActive);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__detachKernelDriver", DetachKernelDriver);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__attachKernelDriver", AttachKernelDriver);
-
-	NODE_SET_PROTOTYPE_METHOD(tpl, "__getSpeed", Device_GetSpeed);
 
 	NanAssignPersistent(device_constructor, tpl);
 	target->Set(NanNew("Device"), tpl->GetFunction());

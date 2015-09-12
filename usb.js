@@ -138,6 +138,24 @@ usb.Device.prototype.getStringDescriptor = function (desc_index, callback) {
   );
 }
 
+usb.Device.prototype.enableAutoAttachKernelDrive = function () {
+  return this.setAutoAttachKernelDrive(true);
+};
+
+usb.Device.prototype.disableAutoAttachKernelDrive = function () {
+  return this.setAutoAttachKernelDrive(false);
+};
+
+/**
+ *
+ * @param enable
+ * @returns {Boolean} true for success, false means not support.
+ */
+usb.Device.prototype.setAutoAttachKernelDrive = function (enable) {
+  enable = enable !== false;
+  return this.__setAutoAttachKernelDrive(enable ? 1 : 0);
+};
+
 function Interface(device, id) {
   this.device = device
   this.id = id
