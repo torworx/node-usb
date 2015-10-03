@@ -355,7 +355,7 @@ void Device::Init(Handle<Object> target){
 	NODE_SET_PROTOTYPE_METHOD(tpl, "reset", Device_Reset::begin);
 
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__getSpeed", Device_GetSpeed);
-    NODE_SET_PROTOTYPE_METHOD(tpl, "__setAutoDetachKernelDrive", Device_SetAutoDetachKernelDrive);
+  NODE_SET_PROTOTYPE_METHOD(tpl, "__setAutoDetachKernelDrive", Device_SetAutoDetachKernelDrive);
 
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__claimInterface", Device_ClaimInterface);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "__releaseInterface", Device_ReleaseInterface::begin);
