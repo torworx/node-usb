@@ -93,7 +93,7 @@ extern "C" void LIBUSB_CALL usbCompletionCb(libusb_transfer *transfer){
 	DEBUG_LOG("Completion callback %p", t);
 	assert(t != NULL);
 
-	if (!transfer->actual_length) {
+	if (!transfer->actual_length && (transfer->endpoint & LIBUSB_ENDPOINT_IN)) {
 		t->device->unref();
 #ifndef USE_POLL
 		completionQueue.unref();
