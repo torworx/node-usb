@@ -20,6 +20,9 @@ using namespace node;
 
 #include "helpers.h"
 
+//#define DEBUG
+//#define USE_POLL
+
 Local<Value> libusbException(int errorno);
 
 
