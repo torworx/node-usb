@@ -35,9 +35,8 @@
   },
   "scripts": {
     "install": "node-gyp rebuild",
-    "test": "mocha --compilers coffee:coffee-script/register --grep Module",
-    "full-test": "mocha --compilers coffee:coffee-script",
-    "valgrind": "coffee -c test/usb.coffee; valgrind --leak-check=full --show-possibly-lost=no node --expose-gc --trace-gc node_modules/mocha/bin/_mocha -R spec"
+    "test": "mocha",
+    "full-test": "mocha"
   },
   "dependencies": {
     "nan": "^1.9.0"
